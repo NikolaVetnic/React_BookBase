@@ -5,7 +5,6 @@ import ArticleCard from '../../utils/articleCard';
 import { useDispatch,useSelector } from 'react-redux';
 import { getArticles } from '../../store/actions/article_actions';
 
-
 const initialSort = {sortBy:"_id", order:"desc",limit:20, skip:0};
 
 const Home = () => {
