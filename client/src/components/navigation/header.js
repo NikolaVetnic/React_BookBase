@@ -51,7 +51,7 @@ const Header = (props) => {
                 <Link style={{fontFamily:'Fredoka One'}} to="/"
                     className="navbar-brand d-flex align-items-center"
                 >
-                    FlickBase
+                    BookBase
                 </Link>
                 <SideDrawer users={users} signOutUser={signOutUser}/>
             </nav>

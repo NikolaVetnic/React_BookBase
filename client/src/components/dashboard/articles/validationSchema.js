@@ -39,7 +39,7 @@ export const validation = () => (
         .required('Sorry the director is required'),
         actors:Yup.array()
         .required('Must have actors')
-        .min(3,'Minimum is 3'),
+        .min(1,'Minimum is 1'),
         status:Yup.string()
         .required('Sorry the status is required')
     })

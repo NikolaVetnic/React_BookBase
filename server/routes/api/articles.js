@@ -82,7 +82,7 @@ router.route("/admin/paginate")
         //     { $match: { title:{ $regex:/Lorem/ }}}
         // ])
 
-        const limit = req.body.limit ?  req.body.limit : 5;
+        const limit = req.body.limit ? req.body.limit : 5;
         const aggQuery = Article.aggregate();
         const options = {
             page: req.body.page,

@@ -16,12 +16,16 @@ import { useDispatch,useSelector } from 'react-redux';
 import { getPaginateArticles,removeArticle,changeStatusArticle } from '../../../store/actions/article_actions';
 
 const Articles = (props) => {
-    const articles = useSelector(state=>state.articles);
+    const articles = useSelector(state => state.articles);
     const notifications = useSelector(state=>state.notifications)
     const dispatch = useDispatch();
     const [removeAlert, setRemoveAlert] = useState(false);
     const [toRemove,setToRemove] = useState(null)
     let arts = articles.adminArticles;
+
+    const [searchTerm, setSearchTerm ] = useState('');
+    const [searchAuthor, setSearchAuthor ] = useState('');
+    const [searchGenre, setSearchGenre ] = useState('');
 
     const editArtsAction = (id) => {
         props.history.push(`/dashboard/articles/edit/${id}`)
@@ -70,17 +74,42 @@ const Articles = (props) => {
                             <Button variant="secondary">Add article</Button>
                         </LinkContainer>
                     </ButtonGroup>
-                    <form onSubmit={()=> alert('search')}>
+                    <form 
+                        id='searchTitle' 
+                        className='aaa'
+                        onSubmit={() => alert(searchTerm)}
+                    >
                         <InputGroup>
                             <InputGroup.Prepend>
                                 <InputGroup.Text id="btnGroupAddon2">@</InputGroup.Text>
                             </InputGroup.Prepend>
                             <FormControl
                                 type="text"
-                                placeholder="Example"
-
+                                placeholder="Title"
+                                
+                                onKeyUp={e => {
+                                    setSearchTerm(e.target.value);
+                                    console.log(searchTerm);
+                                }}
+                            />
+                            <FormControl
+                                type="text"
+                                placeholder="Author"
+                                onKeyUp={e => {
+                                    setSearchAuthor(e.target.value);
+                                    console.log(searchAuthor);
+                                }}
+                            />
+                            <FormControl
+                                type="text"
+                                placeholder="Genre"
+                                onKeyUp={e => {
+                                    setSearchGenre(e.target.value);
+                                    console.log(searchGenre);
+                                }}
                             />
                         </InputGroup>
+                        
                     </form>
                 </ButtonToolbar>
 
@@ -89,6 +118,9 @@ const Articles = (props) => {
                     arts={arts}
                     prev={(page)=> goToPrevPage(page)}
                     next={(page)=> goToNextPage(page)}
+                    searchTerm={searchTerm}
+                    searchAuthor={searchAuthor}
+                    searchGenre={searchGenre}
                     handleShow={(id)=> handleShow(id)}
                     handleStatusChange={(status,id)=>handleStatusChange(status,id)}
                     editArtsAction={(id)=> editArtsAction(id)}

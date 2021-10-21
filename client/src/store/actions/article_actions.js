@@ -39,14 +39,14 @@ export const addArticle = (article) => {
             const request = await axios.post(`/api/articles/admin/add_articles`,article,getAuthHeader());
 
             dispatch(articles.addArticle(request.data));
-            dispatch(articles.successGlobal('Good obi one !!'))
+            dispatch(articles.successGlobal('Book added!'))
         }catch(error){
             dispatch(articles.errorGlobal(error.response.data.message))
         }
     }
 }
 
-export const getPaginateArticles = (page=1,limit=5) => {
+export const getPaginateArticles = (page=1, limit=50) => {
     return async(dispatch)=> {
         try{
             const request = await axios.post(`/api/articles/admin/paginate`,{
@@ -74,7 +74,7 @@ export const changeStatusArticle = (status,_id) => {
             state[position] = art;
 
             dispatch(articles.updateArticleStatus(state));
-            dispatch(articles.successGlobal('Cool !!'));
+            dispatch(articles.successGlobal('Book status changed!'));
         }catch(error){
             dispatch(articles.errorGlobal(error.response.data.message));
         }   
@@ -111,9 +111,9 @@ export const updateArticle = (article,id) => {
         try{
             const newArticle = await axios.patch(`/api/articles/admin/${id}`,article,getAuthHeader());
             dispatch(articles.getArticle(newArticle.data));
-            dispatch(articles.successGlobal('Update done !!'))
+            dispatch(articles.successGlobal('Update done!'))
         } catch(error) {
-            dispatch(articles.errorGlobal('Error, try again !'))
+            dispatch(articles.errorGlobal('Error, try again!'))
         }
     }
 }

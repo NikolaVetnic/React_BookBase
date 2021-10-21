@@ -6,7 +6,7 @@ import { useDispatch,useSelector } from 'react-redux';
 import { getArticles } from '../../store/actions/article_actions';
 
 
-const initialSort = {sortBy:"_id",order:"desc",limit:8,skip:0};
+const initialSort = {sortBy:"_id", order:"desc",limit:20, skip:0};
 
 const Home = () => {
   const [sort,setSort] = useReducer(
@@ -30,7 +30,7 @@ const Home = () => {
   return(
     <div>
         <div>
-          CARROUSEL
+          BOOK SELECTION
         </div>
         <Grid container spacing={2} className="article_card">
           { articles && articles.articles ?

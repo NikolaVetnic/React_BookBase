@@ -67,7 +67,7 @@ const AddArticle = (props) => {
 
 
     return(
-        <AdminLayout section="Add article">
+        <AdminLayout section="Add book">
             { isSubmitting ? 
                 <Loader/>
             :
@@ -122,7 +122,7 @@ const AddArticle = (props) => {
 
 
                 <Divider className="mt-3 mb-3"/>
-                <h5>Movie data and score</h5>
+                <h5>Book data and score</h5>
                 <div className="form-group">
                     <TextField
                         style={{width:'100%'}}
@@ -135,7 +135,7 @@ const AddArticle = (props) => {
                 </div>
 
                 <FormikProvider value={formik}>
-                    <h5>Add the actors:</h5>
+                    <h5>Add the genres:</h5>
                     <FieldArray
                         name="actors"
                         render={ arrayhelpers => (
@@ -144,7 +144,7 @@ const AddArticle = (props) => {
                                     <InputBase
                                         inputRef={actorsValue}
                                         className="input"
-                                        placeholder="Add actor name here"
+                                        placeholder="Add genre"
                                     />
                                     <IconButton
                                         onClick={()=>{
@@ -183,7 +183,7 @@ const AddArticle = (props) => {
                     <TextField
                         style={{width:'100%'}}
                         name="director"
-                        label="Enter a director"
+                        label="Enter the author"
                         variant="outlined"
                         {...formik.getFieldProps('director')}
                         {...errorHelper(formik,'director')}
@@ -217,7 +217,7 @@ const AddArticle = (props) => {
                     type="submit"
                    // disabled={false}
                 >
-                    Add article
+                    Add book
                 </Button>
 
             </form>

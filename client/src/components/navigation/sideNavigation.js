@@ -28,7 +28,7 @@ const SideDrawer = ({users,signOutUser}) => {
             <Drawer anchor={'right'} open={state} onClose={()=> setState(false)}>
 
                 <form style={{margin:'20px'}}>
-                    <TextField id="outlined-basic" label="Search movie"
+                    <TextField id="outlined-basic" label="Search book"
                     variant="outlined"
                     />
                 </form>

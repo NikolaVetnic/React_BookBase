@@ -8,9 +8,11 @@ import {
     Divider,
     Chip
 } from '@material-ui/core'
-import MovieIcon from '@material-ui/icons/Movie';
-import PersonIcon from '@material-ui/icons/Person';
+// import MovieIcon from '@material-ui/icons/Movie';
+import BookIcon from '@material-ui/icons/Book';
+// import PersonIcon from '@material-ui/icons/Person';
 import StarIcon from '@material-ui/icons/Star';
+import CreateIcon from '@material-ui/icons/Create';
 
 
 const ScoreCard = ({current}) => {
@@ -30,7 +32,7 @@ const ScoreCard = ({current}) => {
             {/* actor */}
             <ListItem>
                 <ListItemAvatar>
-                    <Avatar><PersonIcon/></Avatar>
+                    <Avatar><BookIcon/></Avatar>
                 </ListItemAvatar>
                 <div>
                     { current.actors.map((item,index)=>(
@@ -50,9 +52,9 @@ const ScoreCard = ({current}) => {
             {/* director */}
             <ListItem>
                 <ListItemAvatar>
-                    <Avatar><MovieIcon/></Avatar>
+                    <Avatar><CreateIcon/></Avatar>
                 </ListItemAvatar>
-                <ListItemText primary="Director" secondary={current.director}/>
+                <ListItemText primary="Author" secondary={current.director}/>
             </ListItem>
         </List>
     )

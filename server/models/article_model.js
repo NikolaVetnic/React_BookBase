@@ -33,9 +33,9 @@ const articleSchema = mongoose.Schema({
         required:true,
         validate:{
             validator: function(array){
-                return array.length >= 2;
+                return array.length >= 0;
             },
-            message:"you must add at least three"
+            message:"you must add at least one"
         }
     },
     status:{

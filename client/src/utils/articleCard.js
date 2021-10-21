@@ -34,7 +34,7 @@ const ArticleCard = ({article}) => {
                     <FavoriteIcon/>
                 </IconButton>
                 <Button size="small" color="primary" component={RouterLink} to={`/article/${article._id}`}>
-                    View article
+                    View book
                 </Button>
             </CardActions>
         </Card>
